@@ -4,7 +4,7 @@
       <a
         href="#"
         class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center"
-        >Vue3 Dokümantasyon</a
+        >Vue3 Documentation</a
       >
       <div class="flex items-center justify-center mt-2 gap-x-1">
         <div class="relative group">
@@ -73,8 +73,8 @@
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> Lorem Ipsum </a>
-        <span>Lorem Ipsum</span>
+        <a href="#" class="hover:text-black"> John John </a>
+        <span>Calendar</span>
       </div>
     </div>
     <div class="bg-red-200 p-1 text-red-900 text-center text-sm">

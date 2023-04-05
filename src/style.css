@@ -779,6 +779,7 @@ video {
   border: 2px solid;
   border-radius: 10px;
   border-color: rgb(224, 224, 224);
+  box-shadow: 1px 1px rgb(224, 224, 224);
   /* transition: all; */
 }
 

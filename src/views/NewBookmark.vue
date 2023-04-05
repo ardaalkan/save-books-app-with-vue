@@ -1,6 +1,8 @@
 <template>
   <div class="new-bookmark-container">
-    <h3 class="text-2xl text-center mb-3">Yeni Ekle</h3>
+    <h3 class="text-xl text-center mb-6 mt-6 text-slate-600">
+      Add new bookmark
+    </h3>
     <input type="text" placeholder="Başlık" class="input mb-3 input-hover" />
     <input type="text" placeholder="URL" class="input mb-3 input-hover" />
     <select class="input mb-3 input-hover">
@@ -22,3 +24,6 @@
     </div>
   </div>
 </template>
+<script setup>
+
+</script>
