@@ -20,7 +20,7 @@
         </svg>
         SocialMark
       </div>
-      <div class="ml-auto flex">
+      <div v-if="_isAuthenticated" class="ml-auto flex">
         <router-link to="/new" class="new-add-btn"> NEW + </router-link>
         <div class="relative group">
           <button
@@ -153,3 +153,12 @@
     </nav>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["_isAuthenticated"]),
+  },
+};
+</script>

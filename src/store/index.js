@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
     user: null,
-    key: "key123!123??",
+    cryptoKey: "key123!123??",
   },
   mutations: {
     setUser(state, user) {
@@ -20,6 +21,7 @@ export default createStore({
       delete user?.password;
       return user;
     },
-    key: (state) => state.key,
+    cryptoKey: (state) => state.cryptoKey,
   },
+  plugins: [createPersistedState()],
 });

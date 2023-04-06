@@ -43,6 +43,9 @@ import { reactive } from "vue";
 import CryptoJs from "crypto-js";
 import { axiosInstance } from "../utils/axiosInstance";
 import router from "../router/index";
+import { useStore } from "vuex";
+
+const store = useStore();
 
 const userData = reactive({
   username: null,
@@ -51,10 +54,10 @@ const userData = reactive({
 });
 
 const onSave = () => {
-  console.log(userData);
-  const key = "key123!123??";
-  const password = CryptoJs.HmacSHA1(userData.password, key).toString();
-  // console.log("cryptedPassword", cryptedPassword);
+  const password = CryptoJs.HmacSHA1(
+    userData.password,
+    store.getters.cryptoKey
+  ).toString();
   axiosInstance.post("/users", { ...userData, password }).then((response) => {
     console.log("response", response);
     router.push({ name: "HomePage" });

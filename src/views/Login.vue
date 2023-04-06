@@ -57,10 +57,10 @@ const userData = reactive({
 const onSubmit = () => {
   // console.log(userData);
   const password = CryptoJs.HmacSHA1(
-    userData.password,
-    store.state.key
+    userData.password, store.state.cryptoKey
   ).toString();
   console.log("password", password);
+  // console.log("store", store);
   axiosInstance
     .get(`/users?username=${userData.username}&password=${password}`)
     .then((response) => {
@@ -71,7 +71,6 @@ const onSubmit = () => {
       }
       console.log("response", response);
       console.log("password", password);
-
       router.push({ name: "HomePage" });
     })
     .catch(
