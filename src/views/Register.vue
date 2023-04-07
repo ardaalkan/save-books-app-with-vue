@@ -31,7 +31,7 @@
       <small class="font-semibold p-2 w-1/2 m-auto text-center text-gray-600"
         >Zaten üyeyim,
         <span class="text-black cursor-pointer">
-          <router-link :to="{ name: 'LoginPage' }"> Giriş Yap! </router-link>
+          <router-link :to="{ name: 'LoginPage' }">Giriş Yap!</router-link>
         </span></small
       >
     </div>
@@ -39,15 +39,16 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { ref } from "vue";
 import CryptoJs from "crypto-js";
 import { axiosInstance } from "../utils/axiosInstance";
-import router from "../router/index";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const store = useStore();
 
-const userData = reactive({
+const userData = ref({
   username: null,
   fullname: null,
   password: null,

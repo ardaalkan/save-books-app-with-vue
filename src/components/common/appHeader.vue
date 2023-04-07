@@ -20,7 +20,7 @@
         </svg>
         SocialMark
       </div>
-      <div v-if="_isAuthenticated" class="ml-auto flex">
+      <div v-if="isAuthenticated" class="ml-auto flex">
         <router-link to="/new" class="new-add-btn"> NEW + </router-link>
         <div class="relative group">
           <button
@@ -72,7 +72,7 @@
               </svg>
               Favorites</a
             >
-            <a href="#" class="mb-2 menu-item">
+            <a @click="onLogout" href="#" class="mb-2 menu-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 enable-background="new 0 0 24 24"
@@ -154,11 +154,18 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
-export default {
-  computed: {
-    ...mapGetters(["_isAuthenticated"]),
-  },
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
+
+const onLogout = () => {
+  store.commit("onLogout");
+  router.push({ name: "LoginPage" });
 };
+
+const isAuthenticated = computed(() => store.getters._isAuthenticated);
 </script>

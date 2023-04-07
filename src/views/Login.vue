@@ -41,41 +41,35 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import CryptoJs from "crypto-js";
-import { axiosInstance } from "../utils/axiosInstance";
-import router from "../router/index";
+import { ref } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import CryptoJS from "crypto-js";
+import { axiosInstance } from "../utils/axiosInstance";
 
 const store = useStore();
-
-const userData = reactive({
-  password: null,
+const router = useRouter();
+const userData = ref({
   username: null,
+  password: null,
 });
 
 const onSubmit = () => {
-  // console.log(userData);
-  const password = CryptoJs.HmacSHA1(
-    userData.password, store.state.cryptoKey
+  const password = CryptoJS.HmacSHA1(
+    userData.value.password,
+    store.getters.cryptoKey
   ).toString();
-  console.log("password", password);
-  // console.log("store", store);
   axiosInstance
-    .get(`/users?username=${userData.username}&password=${password}`)
+    .get(`/users?username=${userData.value.username}&password=${password}`)
     .then((response) => {
-      if (response.data?.length > 0) {
+      if (response?.data?.length > 0) {
         store.commit("setUser", response?.data[0]);
+        router.push({ name: "HomePage" });
       } else {
-        alert("doesnt exists!");
+        alert("User doesnt exists.");
       }
-      console.log("response", response);
-      console.log("password", password);
-      router.push({ name: "HomePage" });
     })
-    .catch(
-      (e) => console.log(e)
-      // .finally(() => this.loader = false)
-    );
+    .catch((e) => console.log(e));
+  // .finally(() => this.loader = false)
 };
 </script>
