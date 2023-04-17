@@ -11,8 +11,69 @@
       "fullname": "a",
       "password": "992ac9d2d0bdb78773b822d3d219c4cf29a19b19",
       "id": 2
+    },
+    {
+      "username": "c",
+      "fullname": "c",
+      "password": "f7cbe54cf04dcdac24ad243de06468a8adb70eb2",
+      "id": 3
+    },
+    {
+      "username": "dd",
+      "fullname": "dd",
+      "password": "5b1cd886d15d33964da45c869cfe7cea2c8d99b4",
+      "id": 4
     }
   ],
-  "bookmarks": [],
-  "categories": []
+  "bookmarks": [
+    {
+      "title": "Yeni bir mark",
+      "url": "https://...",
+      "categoryId": 1,
+      "description": "Merhaba bu yeni bir bookmark.",
+      "userId": 4,
+      "created_at": "2023-04-16T23:57:53.925Z",
+      "id": 5
+    },
+    {
+      "title": "Vue.js",
+      "url": "vue.js.co",
+      "categoryId": 1,
+      "description": "Vue çok iyi bir framework.",
+      "userId": 4,
+      "created_at": "2023-04-17T14:57:43.509Z",
+      "id": 6
+    },
+    {
+      "title": "Angular öğreniyorum.",
+      "url": "angularlearn.co",
+      "categoryId": 3,
+      "description": "Angular çok zor bir framework.",
+      "userId": 4,
+      "created_at": "2023-04-17T14:58:16.025Z",
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "name": "Vue",
+      "id": 1
+    },
+    {
+      "name": "React",
+      "id": 2
+    },
+    {
+      "name": "Frontend",
+      "id": 3
+    },
+    {
+      "name": "Backend",
+      "id": 4
+    },
+    {
+      "name": "Social",
+      "id": 5
+    }
+  ]
 }

@@ -39,21 +39,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive } from "vue";
 import CryptoJs from "crypto-js";
 import { axiosInstance } from "../utils/axiosInstance";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-
 const router = useRouter();
 const store = useStore();
-
-const userData = ref({
+const userData = reactive({
   username: null,
   fullname: null,
   password: null,
 });
-
 const onSave = () => {
   const password = CryptoJs.HmacSHA1(
     userData.password,

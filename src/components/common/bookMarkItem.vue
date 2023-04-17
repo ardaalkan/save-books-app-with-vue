@@ -2,9 +2,10 @@
   <div class="bg-white flex flex-col rounded-md shadow-sm h-36">
     <div class="p-3">
       <a
-        href="#"
+        :href="item.url"
+        target="_blank"
         class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center"
-        >Vue3 Documentation</a
+        >{{ item.title || "-" }}</a
       >
       <div class="flex items-center justify-center mt-2 gap-x-1">
         <div class="relative group">
@@ -67,18 +68,32 @@
             <p
               class="absolute w-max h-auto right-0 top-full group-hover:visible bg-white invisible rounded-md shadow-lg p-2 text-left border-gray-300 border-[1px] text-sm m-1 transition-all"
             >
-              Lorem Ipsum dolar
+              {{ props.item.description }}
             </p>
           </button>
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> John John </a>
+        <a href="#" class="hover:text-black"> {{ userName }} </a>
         <span>Calendar</span>
       </div>
     </div>
     <div class="bg-red-200 p-1 text-red-900 text-center text-sm">
-      Lorem Ipsum
+      {{ categoryName }}
     </div>
   </div>
 </template>
+
+<script setup>
+import { defineProps, computed } from "vue";
+const props = defineProps({
+  item: {
+    type: Object,
+    required: true,
+    default: () => {},
+  },
+});
+
+const categoryName = computed(() => props.item?.category?.name || "-");
+const userName = computed(() => props.item?.user?.fullname || "-");
+</script>

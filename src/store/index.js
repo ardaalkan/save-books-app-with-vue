@@ -10,9 +10,9 @@ export default createStore({
     setUser(state, user) {
       state.user = user;
     },
-    onLogout(state){
+    onLogout(state) {
       state.user = null;
-    }
+    },
   },
   getters: {
     _isAuthenticated: (state) => state.user !== null,
