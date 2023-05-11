@@ -598,6 +598,13 @@ video {
   --tw-shadow: 0 0 #0000;
 }
 
+.like-item-active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(199, 210, 254, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(55, 48, 163, var(--tw-text-opacity));
+}
+
 .new-add-btn {
   display: flex;
   background-color: rgb(51, 51, 51);
@@ -961,4 +968,23 @@ video {
   .\32xl\:grid-cols-8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
+}
+
+/* svg background */
+
+.bg-primary-svg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240); /* bg-slate-300 */
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240);
+}
+
+/* svg background */
+
+/* .sidebar-item-clicked {
+    background-color: gray;
+  } */
+
+.sidebar-item:active {
+  background-color: grey;
 }

@@ -1,10 +1,13 @@
 <template>
   <body class="bg-gray-100">
     <appHeader />
-    <div class="flex flex-row">
+    <div class="flex">
       <MainAside @category-changed="updateBookmarkList" />
       <!-- deneme -->
-      <bookMarkList :items="bookmarkLists" />
+      <div class="w-full">
+        <bookMarkList v-if="bookmarkLists.length > 0" :items="bookmarkLists" />
+        <div class="p-6" v-else>Bookmark items doesnt exists.</div>
+      </div>
     </div>
   </body>
 </template>
@@ -25,12 +28,16 @@ const fetchData = () => {
       console.log(response);
     });
 };
+
 const updateBookmarkList = (categoryId) => {
-  const url = `/bookmarks?_expand=category&_expand=user&categoryId=${categoryId}`;
+  const url = categoryId
+    ? `/bookmarks?_expand=category&_expand=user&categoryId=${categoryId}`
+    : `/bookmarks?_expand=category&_expand=user`;
   axiosInstance.get(url).then((response) => {
     console.log(response);
     bookmarkLists.value = response?.data || [];
   });
 };
+
 fetchData();
 </script>

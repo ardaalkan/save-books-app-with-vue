@@ -9,7 +9,7 @@
       >
       <div class="flex items-center justify-center mt-2 gap-x-1">
         <div class="relative group">
-          <button class="like-btn group">
+          <button @click="likeItem" class="like-btn group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="fill-current group-hover:text-white"
@@ -85,7 +85,12 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { defineProps, computed, inject } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const axiosInstance = inject("axiosInstance");
+
 const props = defineProps({
   item: {
     type: Object,
@@ -94,6 +99,15 @@ const props = defineProps({
   },
 });
 
+const likeItem = () => {
+  axiosInstance
+    .patch(`/users/${_getCurrentUser.value.id}`, { like: props.item.id })
+    .then((response) => {
+      console.log(response);
+    });
+};
+
+const _getCurrentUser = computed(() => store.getters._getCurrentUser);
 const categoryName = computed(() => props.item?.category?.name || "-");
 const userName = computed(() => props.item?.user?.fullname || "-");
 </script>

@@ -22,7 +22,8 @@
       "username": "dd",
       "fullname": "dd",
       "password": "5b1cd886d15d33964da45c869cfe7cea2c8d99b4",
-      "id": 4
+      "id": 4,
+      "like": 5
     }
   ],
   "bookmarks": [
@@ -52,6 +53,15 @@
       "userId": 4,
       "created_at": "2023-04-17T14:58:16.025Z",
       "id": 7
+    },
+    {
+      "title": "Sosyal Yaşam için.",
+      "url": "sosyal.co",
+      "categoryId": 5,
+      "description": "Sosyal yaşam.",
+      "userId": 4,
+      "created_at": "2023-04-17T16:30:19.545Z",
+      "id": 8
     }
   ],
   "categories": [
